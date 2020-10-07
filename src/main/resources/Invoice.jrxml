@@ -59,7 +59,7 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="pendapatan" class="java.math.BigDecimal"/>
+	<field name="pendapatan" class="java.lang.Double"/>
 	<field name="alamat" class="java.lang.String"/>
 	<field name="nama" class="java.lang.String"/>
 	<field name="cust_id" class="java.lang.String"/>

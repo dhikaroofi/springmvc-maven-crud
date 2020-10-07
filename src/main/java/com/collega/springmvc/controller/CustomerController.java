@@ -94,7 +94,7 @@ public class CustomerController {
 	    InputStream jasperStream = this.getClass().getResourceAsStream("/Invoice.jasper");
 	    Map<String,Object> parameters = new HashMap<>();
 	    
-	    List<CustomerModel> dataList = customer.list(0);
+	    List<CustomerModel> dataList = customer.list(-1);
 	    
 	    JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(dataList);
 	    JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
