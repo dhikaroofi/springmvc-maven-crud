@@ -2,8 +2,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <spring:url value="/springmvc" var="url" htmlEscape="true"/>
+
 <html>
   <head>
     <!-- Required meta tags -->
@@ -102,7 +104,7 @@
 							<td class="text-center">
 								<button class="btn btn-warning text-white btnUpdate" data-toggle="modal" data-target="#exampleModalUpdate" data-form="${customer.cust_id}&${customer.nama}&${customer.alamat}&${customer.pendapatan}&${customer.kota_id}&${customer.nama_kota}">Rubah</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a class="btn btn-danger text-white" href="delete?id=${customer.cust_id}">Hapus</a>
+								<a class="btn btn-danger text-white" href="customer/delete?id=${customer.cust_id}">Hapus</a>
 							</td>
 									
 			        	</tr>
@@ -115,6 +117,16 @@
 					
   			</div>
   		</div>
+  		<div class="row mt-3">
+			
+				<nav class=" col-md-6  ml-auto text-center " aria-label="...">
+				  <ul class="pagination pagination-md float-right"  >
+				  
+				  	<c:out value="${page}" escapeXml="false"/> 
+				  </ul>
+				</nav>
+			
+		</div>
   	</div>
  
 

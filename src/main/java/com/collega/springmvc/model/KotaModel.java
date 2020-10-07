@@ -1,8 +1,11 @@
 package com.collega.springmvc.model;
+import javax.validation.constraints.Pattern;  
 
 public class KotaModel {
-
+	@Pattern(regexp="^[a-zA-Z0-9]{3}",message="length must be 3")  
 	private String kota_id;
+	
+	@Pattern(regexp="^[a-zA-Z0-9]{50}",message="length must be 50")  
 	private String nama;
 	public KotaModel() {
 		

@@ -1,7 +1,14 @@
 package com.collega.springmvc.controller;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,6 +22,13 @@ public class HomeController {
 		model.setViewName("dashboard");
 		return model;
 	}
+	
+	@RequestMapping(value = "/showHomea")
+	public String showHome() {
+		
+		return "homwee";
+	}
+	
 	
 //	@RequestMapping(value = "/customer/create", method = RequestMethod.POST)
 //	public ModelAndView saveContact(@ModelAttribute CustomerModel contact) {

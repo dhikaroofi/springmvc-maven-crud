@@ -11,7 +11,7 @@ public interface CustomerDAOInterface {
 	
 	public String delete(String cust_id);
 	
-	public CustomerModel get(int cust_id);
+	public String getTotalData(int cust_id);
 	
-	public List<CustomerModel> list();
+	public List<CustomerModel> list(int page);
 }

@@ -1,5 +1,6 @@
 package com.collega.springmvc.model;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Pattern;  
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -7,17 +8,54 @@ import javax.validation.constraints.Size;
 public class CustomerModel {
 
 	private String cust_id;
-	@NotNull 
-	@Size(min=1,max=50)
-	private String nama;
-	@NotNull
-	@Size(min=1,max=50)
-	private String alamat;
-	private Float pendapatan;
-	@NotNull
-	private String kota_id;
-	private String nama_kota;
 	
+	
+	@Size(min=1,max=50)
+	@Pattern(regexp="^[a-zA-Z]",message="Invalid nama")  
+	private String nama;
+	
+
+	@Size(min=1,max=50)
+	@Pattern(regexp="^[a-zA-Z0-9]{50}",message="Invalid alamat")   
+	private String alamat;
+	
+	@Pattern(regexp="[0-9]*\\.?[0-9]{0,2}",message="Invalid pendapatan")  
+	private double pendapatan;
+	
+	@NotNull
+	@Pattern(regexp="^[a-zA-Z]{3}",message="Invalid kota")  
+	private String kota_id;
+	
+	private String nama_kota;
+	private String page;
+
+	public String getPage() {
+		return page;
+	}
+
+	public String isValid(){
+		
+		Validation valid = new Validation();
+		String msg = "";
+		if(!valid.validateString(this.nama,25)){
+			msg += "Nama ";
+		}
+		if(!valid.validateString(this.alamat,50)){
+			msg += "Alamat ";
+		}
+		if(!valid.validateString(this.kota_id,3)){
+			msg += "kota ";
+		}
+		if(!valid.validateDouble(this.pendapatan)){
+			msg += "pendapatan ";
+		}
+		if(msg.length()>0){
+			msg += "Invalid";
+		}
+		
+		return msg;
+		
+	}
 
 	public CustomerModel() {
 	}
@@ -55,10 +93,10 @@ public class CustomerModel {
 	public void setAlamat(String alamat) {
 		this.alamat = alamat;
 	}
-	public Float getPendapatan() {
+	public double getPendapatan() {
 		return pendapatan;
 	}
-	public void setPendapatan(Float pendapatan) {
+	public void setPendapatan(double pendapatan) {
 		this.pendapatan = pendapatan;
 	}
 	public String getKota_id() {

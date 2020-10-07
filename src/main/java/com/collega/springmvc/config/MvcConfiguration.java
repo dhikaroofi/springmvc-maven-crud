@@ -5,16 +5,20 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.XmlViewResolver;
 
 import com.collega.springmvc.dao.*;
 
-
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.web.servlet.view.XmlViewResolver;
 
 
 @Configuration
@@ -63,6 +67,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		return new KotaDAO(getDataSource());
 	}
 	
+	
+	
+
 
 	
 }
