@@ -47,7 +47,7 @@
   	<div class="container mt-5">
   		<div class="row">
   			
-			<c:if test="${error != null}">
+			<c:if test="${not empty error}">
 				<div class="col-md-12  alert alert-warning alert-dismissible fade show" role="alert">
 				  <strong>Alert</strong> 	${error}
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -56,7 +56,7 @@
 				</div>
 			</c:if>
 			
-			<c:if test="${success != null}">
+			<c:if test="${not empty success}">
 				<div class=" col-md-12 alert alert-success alert-dismissible fade show" role="alert">
 				  <strong>Alert</strong> 	${success}
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -143,7 +143,7 @@
         
       </div>
       <div class="modal-body">
-      	<form:form action="create" method="post" modelAttribute="customerModel" id="SaveForm">
+      	<form:form action="/springmvc/customer/create" method="post" modelAttribute="customerModel" id="SaveForm">
 	      	 <div class="form-group">
 			    <label for="exampleInputEmail1">Nama</label>
 		   		<form:input path="nama" cssClass="form-control" maxlength="50" cssStyle="" />
@@ -190,7 +190,7 @@
         
       </div>
       <div class="modal-body">
-      	<form:form action="update" method="post" modelAttribute="customerModel" id="SaveUpdate">
+      	<form:form action="/springmvc/customer/create" method="post" modelAttribute="customerModel" id="SaveUpdate">
       	 	<div class="form-group">
 			    <label for="exampleInputEmail1">ID Customer</label>
 		   		<form:input path="" id="cust_id" cssClass="form-control" maxlength="50" cssStyle="" disabled="true"/>

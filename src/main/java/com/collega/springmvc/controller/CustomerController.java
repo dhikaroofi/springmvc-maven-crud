@@ -58,7 +58,7 @@ public class CustomerController {
 	
 	
 	@RequestMapping(value="")
-	public ModelAndView listCustomer(ModelAndView model,HttpServletRequest request) throws IOException{
+	public ModelAndView listCustomer(ModelAndView model,HttpServletRequest request,@ModelAttribute("error") String error,@ModelAttribute("success") String success) throws IOException{
 		String page_data = request.getParameter("page");
 		int pageID  = 0;
 		if ((page_data != null) && (page_data != "")) {
